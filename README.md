@@ -16,7 +16,7 @@ Apache : apt install apache2
 
 nginx : apt install nginx
 
-## 1. Instale e configure o Zabbix para database MySQL com Web Server Apache
+## 2. Instale e configure o Zabbix para database MySQL com Web Server Apache
 
 ### a. Torne-se um usuário root
 
