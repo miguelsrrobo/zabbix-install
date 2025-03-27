@@ -7,6 +7,13 @@ Certifique-se de atender a todos os pré-requisitos antes de prosseguir com a in
 |--------|--------|
 |MySQL|Apache|
 |PostgreSQL|Nginx|
+
+MySQL : apt install mysql-server
+postgreSQL : apt install postgresql postgresql-contrib
+
+Apache : apt install apache2
+nginx : apt install nginx
+
 ## 1. Instale e configure o Zabbix para database MySQL com Web Server Apache
 
 ### a. Torne-se um usuário root
