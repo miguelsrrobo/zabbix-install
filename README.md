@@ -3,7 +3,10 @@
 ## 1. Pré-requisitos para o Zabbix
 
 Certifique-se de atender a todos os pré-requisitos antes de prosseguir com a instalação.
-
+|Database| Web Server|
+|--------|--------|
+|MySQL|Apache|
+|PostgreSQL|Nginx|
 ## 2. Instale e configure o Zabbix para sua plataforma
 
 ### a. Torne-se um usuário root
