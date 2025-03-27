@@ -161,3 +161,90 @@ http://host/zabbix
 ```
 
 Substitua `host` pelo endereço IP ou nome do host do seu servidor.
+
+## 4 Instale e configure o Zabbix para database MySQL com Web Server Nginx
+
+
+### c. Instalar o Servidor, Frontend e Agente do Zabbix
+
+```sh
+apt install zabbix-server-mysql zabbix-frontend-php zabbix-nginx-conf zabbix-sql-scripts zabbix-agent
+```
+
+### d. Criar o Banco de Dados Inicial
+
+Certifique-se de que você tem um servidor de banco de dados em execução. Execute o seguinte comando no host do banco de dados:
+
+```sh
+mysql -uroot -p
+```
+Digite a senha do root do MySQL e execute os seguintes comandos:
+
+```sql
+create database zabbix character set utf8mb4 collate utf8mb4_bin;
+create user zabbix@localhost identified by 'password';
+grant all privileges on zabbix.* to zabbix@localhost;
+set global log_bin_trust_function_creators = 1;
+quit;
+```
+
+No host do servidor Zabbix, importe o esquema inicial e os dados. Você será solicitado a inserir a senha recém-criada:
+
+```sh
+zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
+```
+
+Desative a opção `log_bin_trust_function_creators` após importar o esquema do banco de dados:
+
+```sh
+mysql -uroot -p
+```
+Digite a senha do root do MySQL e execute:
+
+```sql
+set global log_bin_trust_function_creators = 0;
+quit;
+```
+
+### e. Configurar o Banco de Dados para o Servidor Zabbix
+
+Edite o arquivo de configuração:
+
+```sh
+nano /etc/zabbix/zabbix_server.conf
+```
+
+Encontre a linha que contém `DBPassword=` e defina:
+
+```sh
+DBPassword=password
+```
+
+### f. Configurar o PHP para o Frontend do Zabbix
+
+Edite o arquivo `/etc/zabbix/nginx.conf`, descomente e configure as diretivas `listen` e `server_name`:
+
+```sh
+listen 8080;
+server_name example.com;
+```
+
+### g. Iniciar os Processos do Servidor e Agente do Zabbix
+
+Inicie os processos do servidor e agente do Zabbix e habilite-os para iniciar na inicialização do sistema:
+
+```sh
+systemctl restart zabbix-server zabbix-agent nginx php8.3-fpm
+systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
+```
+
+### h. Abrir a Página Web da Interface do Zabbix
+
+A URL da interface web do Zabbix ao usar o Nginx depende das configurações feitas no `nginx.conf`. Acesse:
+
+```
+http://example.com:8080/zabbix
+```
+
+Substitua `example.com` pelo endereço IP ou nome do host do seu servidor.
+
