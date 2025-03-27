@@ -1,9 +1,6 @@
 # Get Zabbix
 ## 1 Pre requisitor para o zabbix
 
-|Database | Web Server |
-|MySQL    |Apache      |
-|PosgrSQL |Nginx       |
 
 ## 2 Instale e configure o Zabbix para sua plataforma
 a. Torne-se um usuário root
