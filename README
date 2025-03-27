@@ -1,6 +1,8 @@
 Get Zabbix
 1 Pre requisitor para o zabbix
-Database
+|Database | Web Server |
+|----------|----------|
+
 2 Instale e configure o Zabbix para sua plataforma
 a. Torne-se um usuário root
 Inicie uma nova sessão de shell com privilégios de root.
