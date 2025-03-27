@@ -10,10 +10,10 @@ a. Torne-se um usuário root
 Inicie uma nova sessão de shell com privilégios de root.
  $ sudo -s 
 
-b. Instalar o repositório do Zabbix
-# wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu24.04_all.deb
-# dpkg -i zabbix-release_latest_7.2+ubuntu24.04_all.deb
-# apt update
+##b. Instalar o repositório do Zabbix
+`# wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu24.04_all.deb`
+`# dpkg -i zabbix-release_latest_7.2+ubuntu24.04_all.deb`
+`# apt update`
 
  # apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent
 
