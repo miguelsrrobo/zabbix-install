@@ -7,7 +7,7 @@ Certifique-se de atender a todos os pré-requisitos antes de prosseguir com a in
 |--------|--------|
 |MySQL|Apache|
 |PostgreSQL|Nginx|
-## 2. Instale e configure o Zabbix para sua plataforma
+## 1. Instale e configure o Zabbix para database MySQL com Web Server Apache
 
 ### a. Torne-se um usuário root
 
@@ -96,5 +96,60 @@ Abra um navegador e acesse a interface web do Zabbix:
 ```
 http://host/zabbix
 ```
-
 Substitua `host` pelo endereço IP ou hostname do seu servidor.
+
+## 3 Instale e configure o Zabbix para database PostgreSQL com Web Server Apache
+
+### c. Instalar o Servidor, Frontend e Agente do Zabbix
+
+```sh
+apt install zabbix-server-pgsql zabbix-frontend-php php8.3-pgsql zabbix-apache-conf zabbix-sql-scripts zabbix-agent
+```
+
+### d. Criar o Banco de Dados Inicial
+
+Certifique-se de que você tem um servidor de banco de dados em execução. Execute o seguinte comando no host do banco de dados:
+
+```sh
+sudo -u postgres createuser --pwprompt zabbix
+sudo -u postgres createdb -O zabbix zabbix
+```
+
+No host do servidor Zabbix, importe o esquema inicial e os dados. Você será solicitado a inserir a senha recém-criada:
+
+```sh
+zcat /usr/share/zabbix/sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psql zabbix
+```
+
+### e. Configurar o Banco de Dados para o Servidor Zabbix
+
+Edite o arquivo de configuração:
+
+```sh
+nano /etc/zabbix/zabbix_server.conf
+```
+
+Encontre a linha que contém `DBPassword=` e defina:
+
+```sh
+DBPassword=password
+```
+
+### f. Iniciar os Processos do Servidor e Agente do Zabbix
+
+Inicie os processos do servidor e agente do Zabbix e habilite-os para iniciar na inicialização do sistema:
+
+```sh
+systemctl restart zabbix-server zabbix-agent apache2
+systemctl enable zabbix-server zabbix-agent apache2
+```
+
+### g. Abrir a Página Web da Interface do Zabbix
+
+A URL padrão para a interface web do Zabbix ao usar o servidor Apache é:
+
+```
+http://host/zabbix
+```
+
+Substitua `host` pelo endereço IP ou nome do host do seu servidor.
