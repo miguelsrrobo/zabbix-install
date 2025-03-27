@@ -58,13 +58,12 @@ SET GLOBAL log_bin_trust_function_creators = 1;
 QUIT;
 ```
 
-### e. Importar o esquema inicial do banco de dados
+No host do servidor Zabbix importe esquema e dados iniciais. Você será solicitado a digitar sua senha recém-criada.
 
 ```sh
 zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
-
-### f. Desativar a configuração temporária no MySQL
+Desabilite a opção log_bin_trust_function_creators após importar esquema de banco de dados.
 
 ```sh
 mysql -uroot -p
@@ -77,7 +76,7 @@ SET GLOBAL log_bin_trust_function_creators = 0;
 QUIT;
 ```
 
-### g. Configurar a senha do banco de dados no Zabbix Server
+### e. Configurar a senha do banco de dados no Zabbix Server
 
 Edite o arquivo de configuração do Zabbix Server:
 
@@ -91,14 +90,14 @@ Encontre a linha `DBPassword=` e defina:
 DBPassword=password
 ```
 
-### h. Reiniciar e habilitar os serviços do Zabbix
+### f. Reiniciar e habilitar os serviços do Zabbix
 
 ```sh
 systemctl restart zabbix-server zabbix-agent apache2
 systemctl enable zabbix-server zabbix-agent apache2
 ```
 
-### i. Acessar a interface web do Zabbix
+### g. Acessar a interface web do Zabbix
 
 Abra um navegador e acesse a interface web do Zabbix:
 
