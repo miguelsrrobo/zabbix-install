@@ -226,10 +226,20 @@ systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
 ```
 http://seu_dominio.com:8080/zabbix
 ```
+## 3 Comece a usar o Zabbix
+
+Leia em documentação: [Guia de início rápido](https://www.zabbix.com/documentation/7.2/en/manual/quickstart/login)
 
 ---
 
 ## Conclusão
 
 Agora você tem o Zabbix instalado e configurado com diferentes combinações de banco de dados e servidores web. Acesse a interface web para finalizar a configuração e comece a monitorar seus dispositivos!
+
+---
+
+## Referências
+
+Para mais detalhes sobre a instalação do Zabbix, consulte a documentação oficial: [Zabbix Download](https://www.zabbix.com/download?zabbix=7.2&os_distribution=ubuntu&os_version=24.04&components=server_frontend_agent&db=mysql&ws=apache)
+ou [Zabbix manuals](https://www.zabbix.com/manuals)
 
