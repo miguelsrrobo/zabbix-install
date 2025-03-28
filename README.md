@@ -101,7 +101,7 @@ systemctl enable zabbix-server zabbix-agent apache2
 #### g) Acessar a Interface Web
 
 ```
-http://<seu_servidor>/zabbix
+http://host/zabbix
 ```
 
 ---
@@ -153,7 +153,7 @@ systemctl enable zabbix-server zabbix-agent apache2
 #### g) Acessar a Interface Web
 
 ```
-http://<seu_servidor>/zabbix
+http://host/zabbix
 ```
 
 ---
@@ -195,7 +195,7 @@ systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
 #### g) Acessar a Interface Web
 
 ```
-http://seu_dominio.com:8080/zabbix
+http://host/zabbix
 ```
 
 ---
@@ -224,13 +224,17 @@ systemctl enable zabbix-server zabbix-agent nginx php8.3-fpm
 #### g) Acessar a Interface Web
 
 ```
-http://seu_dominio.com:8080/zabbix
+http://host/zabbix
 ```
+---
 ## 3 Comece a usar o Zabbix
 
 Leia em documentação: [Guia de início rápido](https://www.zabbix.com/documentation/7.2/en/manual/quickstart/login)
 
 ---
+## 4 para wsl
+toda a instalação permanecerá a mesma conforme acima, mas o acesso a interface web muda:
+http://IP/zabbix
 
 ## Conclusão
 
