@@ -2,19 +2,20 @@
 
 ## 1. Pré-requisitos para o Zabbix
 
-Certifique-se de atender a todos os pré-requisitos antes de prosseguir com a instalação.
+Escolha a sua plataforma de trabalho
 |Database| Web Server|
 |--------|--------|
 |MySQL|Apache|
 |PostgreSQL|Nginx|
 
-MySQL : apt install mysql-server
+|Ferramenta|instalação|
+|---------|----------|
+|MySQL|apt install mysql-server|
+|postgreSQL| apt install postgresql postgresql-contrib|
+|Apache| apt install apache2|
+|nginx| apt install nginx|
 
-postgreSQL : apt install postgresql postgresql-contrib
-
-Apache : apt install apache2
-
-nginx : apt install nginx
+Certifique-se de instalar as ferramentas antes de começasr a instalar o zabbix.
 
 ## 2. Instale e configure o Zabbix para database MySQL com Web Server Apache
 
@@ -43,7 +44,9 @@ apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sq
 ```
 
 ### d. Configurar o banco de dados MySQL para o Zabbix
+Certifique-se de que você tem o servidor de banco de dados instalado e em execução.
 
+Execute o seguinte no seu host de banco de dados.
 ```sh
 mysql -uroot -p
 ```
@@ -107,7 +110,23 @@ http://host/zabbix
 Substitua `host` pelo endereço IP ou hostname do seu servidor.
 
 ## 3 Instale e configure o Zabbix para database PostgreSQL com Web Server Apache
+### a. Torne-se um usuário root
 
+Inicie uma nova sessão de shell com privilégios de root:
+
+```sh
+sudo -s
+```
+
+### b. Instalar o repositório do Zabbix
+
+```sh
+wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu24.04_all.deb
+
+dpkg -i zabbix-release_latest_7.2+ubuntu24.04_all.deb
+
+apt update
+```
 ### c. Instalar o Servidor, Frontend e Agente do Zabbix
 
 ```sh
@@ -163,7 +182,23 @@ http://host/zabbix
 Substitua `host` pelo endereço IP ou nome do host do seu servidor.
 
 ## 4 Instale e configure o Zabbix para database MySQL com Web Server Nginx
+### a. Torne-se um usuário root
 
+Inicie uma nova sessão de shell com privilégios de root:
+
+```sh
+sudo -s
+```
+
+### b. Instalar o repositório do Zabbix
+
+```sh
+wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu24.04_all.deb
+
+dpkg -i zabbix-release_latest_7.2+ubuntu24.04_all.deb
+
+apt update
+```
 
 ### c. Instalar o Servidor, Frontend e Agente do Zabbix
 
@@ -249,7 +284,23 @@ http://example.com:8080/zabbix
 Substitua `example.com` pelo endereço IP ou nome do host do seu servidor.
 
 ## 5 Instale e configure o Zabbix para database PostgreSQL com Web Server Nginx
+### a. Torne-se um usuário root
 
+Inicie uma nova sessão de shell com privilégios de root:
+
+```sh
+sudo -s
+```
+
+### b. Instalar o repositório do Zabbix
+
+```sh
+wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest_7.2+ubuntu24.04_all.deb
+
+dpkg -i zabbix-release_latest_7.2+ubuntu24.04_all.deb
+
+apt update
+```
 ### c. Instalar o Servidor, Frontend e Agente do Zabbix
 
 ```sh
