@@ -258,3 +258,5 @@ Agora você tem o Zabbix instalado e configurado com diferentes combinações de
 Para mais detalhes sobre a instalação do Zabbix, consulte a documentação oficial: [Zabbix Download](https://www.zabbix.com/download?zabbix=7.2&os_distribution=ubuntu&os_version=24.04&components=server_frontend_agent&db=mysql&ws=apache)
 ou [Zabbix manuals](https://www.zabbix.com/manuals)
 
+Assista a palestra completa de Marcilio Ramos, Administrador de Sistemas da Hostdime Brasil, na Zabbix Conference Brazil 2022,[Zabbix Conference Brazil 2022 | Palestra Marcilio Ramos](https://www.youtube.com/watch?v=bYX9So4B1HY) slide da conferencia [conference_brazil_2022](https://assets.zabbix.com/files/events/2022/conference_brazil_2022/9MarcilioRamos.pdf)
+
