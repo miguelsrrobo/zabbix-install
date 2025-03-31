@@ -236,6 +236,17 @@ Leia em documentação: [Guia de início rápido](https://www.zabbix.com/documen
 toda a instalação permanecerá a mesma conforme acima, mas o acesso a interface web muda:
 http://IP/zabbix
 
+---
+## 5 ESP8266 Zabbix Sender
+Biblioteca para realizar o zabbix-sender em ESP8266-Arduino [ESP8266ZabbixSender](https://github.com/zaphodus/ESP8266ZabbixSender/tree/master)
+
+---
+
+## 6 ESP8266 Zabbix Sensor de temperatura
+Repositorio para realizar a conexão do Zabbix com o ESP8266 e um sensor de termperatura [ESP8266 Zabbix Temperature sensor](https://github.com/EimantasRebzdys/ESP_zabbix_temperature/tree/master)
+
+---
+
 ## Conclusão
 
 Agora você tem o Zabbix instalado e configurado com diferentes combinações de banco de dados e servidores web. Acesse a interface web para finalizar a configuração e comece a monitorar seus dispositivos!
