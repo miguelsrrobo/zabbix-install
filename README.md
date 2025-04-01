@@ -49,6 +49,7 @@ apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sq
 ```
 
 #### d) Configurar o Banco de Dados MySQL
+Obs.: ao configurar o banco de dados, seja MySQL ou PostgreSQL, em alguns computadores pode demorar muito (alguns até 1h!) então se você achar que seu terminal travou, NÃO FAÇA NADA, se cancelar essa parte poderá dar problemas ao tentar de novo.
 
 ```sh
 mysql -uroot -p
@@ -117,6 +118,7 @@ apt install zabbix-server-pgsql zabbix-frontend-php php8.3-pgsql zabbix-apache-c
 ```
 
 #### d) Configurar o Banco de Dados PostgreSQL
+Obs.: ao configurar o banco de dados, seja MySQL ou PostgreSQL, em alguns computadores pode demorar muito (alguns até 1h!) então se você achar que seu terminal travou, NÃO FAÇA NADA, se cancelar essa parte poderá dar problemas ao tentar de novo.
 
 ```sh
 sudo -u postgres createuser --pwprompt zabbix
