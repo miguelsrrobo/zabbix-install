@@ -70,7 +70,7 @@ Serão utilizados no projeto somentre estes pinos:
 - IN-: Este pino conecta-se à carga. É aqui que o resistor de shunt é colocado para detecção atual.
 - IN+: Este pino se conecta à Fonte de Alimentação.
 
-Alem destes pinos, as restantes não são necessarias.
+Alem destes pinos, existe o A0 e A1 que não serão utilizados.
 
 ---
 
