@@ -53,13 +53,14 @@ O módulo INA226 é construído com um chip INA226, alguns resistores e um capac
 
 ---
 
-## Pinso do INA226
+## Pinos do INA226
 O módulo de sensor INA226 normalmente tem 8 pinos, que são os seguintes:
 
 <p align = "center">
 <img src="https://github.com/miguelsrrobo/zabbix-install/blob/main/INA226/Screenshot%202025-04-09%20at%2010-16-41%20INA226%2036V%2016-Bit%20Ultra-Precise%20I2C%20Output%20Current%20Voltage%20and%20Power%20Monitor%20With%20Alert%20datasheet%20(Rev.%20B)%20-%20ina226.pdf.png" width="90%"/>
 </p>
 
+Serão utilizados no projeto somentre estes pinos:
 - VS: Aceita uma tensão de entrada de 2.7V a 5.5V.
 - GND: Pão de aterramento, conectado ao solo da fonte de alimentação.
 - SDA: Linha de dados de série para a interface I2C. É usado para a transferência bidirecional de dados.
@@ -69,7 +70,7 @@ O módulo de sensor INA226 normalmente tem 8 pinos, que são os seguintes:
 - IN-: Este pino conecta-se à carga. É aqui que o resistor de shunt é colocado para detecção atual.
 - IN+: Este pino se conecta à Fonte de Alimentação.
 
-Alem desta protas, as restantes não são necessarias.
+Alem destes pinos, as restantes não são necessarias.
 
 ---
 
@@ -81,6 +82,11 @@ Aqui está um diagrama de conexão simples que pode ser usado para conectar o se
 <p align = "center">
   <img src="https://github.com/miguelsrrobo/zabbix-install/blob/main/INA226/IoT-Based-12V-Battery-Monitoring-System-with-ESP8266-448x360.png" alt="Rinha logo" width="50%" />
 </p>
+Os pinos SDA e SCL do INA226 estão conectados aos pinos D2 e D1 do ESP8266. O pino In+ deve ser conectado a uma fonte de energia e o In- à carga, como mostrado no esquema. O sensor INA226 possui Pino VBus, que é usado para medir a tensão de carga. Portanto, precisamos unir os o pinos VBus e In-.
+
+---
+
+## Biblioteca INA226 Arduino
 
 ---
 
