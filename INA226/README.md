@@ -82,7 +82,7 @@ Aqui está um diagrama de conexão simples que pode ser usado para conectar o se
 <p align = "center">
   <img src="https://github.com/miguelsrrobo/zabbix-install/blob/main/INA226/IoT-Based-12V-Battery-Monitoring-System-with-ESP8266-448x360.png" alt="Rinha logo" width="50%" />
 </p>
-Os pinos SDA e SCL do INA226 estão conectados aos pinos D1, D2 e D3 do ESP8266. O pino In+ deve ser conectado a uma fonte de energia e o In- à carga, como mostrado no esquema. O sensor INA226 possui Pino VBus, que é usado para medir a tensão de carga. Portanto, precisamos unir os o pinos VBus e In-, sendo o D3 o pino conectado ao pino ALE.
+Os pinos SDA e SCL do INA226 estão conectados aos pinos D1 e D2 do ESP8266. O pino In+ deve ser conectado a uma fonte de energia e o In- à carga, como mostrado no esquema. O sensor INA226 possui Pino VBus, que é usado para medir a tensão de carga. Portanto, precisamos unir os o pinos VBus e In-, o pino D3 esta conectado ao pino ALE.
 
 ---
 
