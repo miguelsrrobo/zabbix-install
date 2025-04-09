@@ -225,6 +225,8 @@ void loop()
 }
 
 ```
+---
+
 [INA226 Power Monitor + OLED Display - Arduino Tutorial ](https://www.youtube.com/watch?v=BscbVAANlDA)
 
 ## Referencias
