@@ -57,7 +57,7 @@ O módulo INA226 é construído com um chip INA226, alguns resistores e um capac
 O módulo de sensor INA226 normalmente tem 8 pinos, que são os seguintes:
 
 <p align = "center">
-<img src="https://github.com/miguelsrrobo/zabbix-install/blob/main/INA226/Screenshot%202025-04-09%20at%2010-16-41%20INA226%2036V%2016-Bit%20Ultra-Precise%20I2C%20Output%20Current%20Voltage%20and%20Power%20Monitor%20With%20Alert%20datasheet%20(Rev.%20B)%20-%20ina226.pdf.png" width="50%"/>
+<img src="https://github.com/miguelsrrobo/zabbix-install/blob/main/INA226/Screenshot%202025-04-09%20at%2010-16-41%20INA226%2036V%2016-Bit%20Ultra-Precise%20I2C%20Output%20Current%20Voltage%20and%20Power%20Monitor%20With%20Alert%20datasheet%20(Rev.%20B)%20-%20ina226.pdf.png" width="90%"/>
 </p>
 
 - VS: Aceita uma tensão de entrada de 2.7V a 5.5V.
