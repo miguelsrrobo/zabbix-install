@@ -234,10 +234,17 @@ http://host/zabbix
 Leia em documentação: [Guia de início rápido](https://www.zabbix.com/documentation/7.2/en/manual/quickstart/login)
 
 ---
-## 4 para wsl
-toda a instalação permanecerá a mesma conforme acima, mas o acesso a interface web muda:
-http://IP/zabbix
+## 4 Para wsl
 
+toda a instalação permanecerá a mesma conforme acima, mas o acesso a interface web muda:
+```
+http://IP/zabbix
+```
+Para consegui o IP da maquina linux no WSL, usase este comando:
+
+```
+ip addr show eth0 | grap "inet "
+```
 ---
 ## 5 ESP8266 Zabbix Sender
 Biblioteca para realizar o zabbix-sender em ESP8266-Arduino [ESP8266ZabbixSender](https://github.com/zaphodus/ESP8266ZabbixSender/tree/master)
