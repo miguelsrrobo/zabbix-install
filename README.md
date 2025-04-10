@@ -254,6 +254,9 @@ Biblioteca para realizar o zabbix-sender em ESP8266-Arduino [ESP8266ZabbixSender
 ## 6 ESP8266 Zabbix Sensor de temperatura
 Repositorio para realizar a conexão do Zabbix com o ESP8266 e um sensor de termperatura [ESP8266 Zabbix Temperature sensor](https://github.com/EimantasRebzdys/ESP_zabbix_temperature/tree/master)
 
+## 7 Conexão com MQTT e MUSQUITTO com ESP
+
+[obiquos](https://github.com/RegisBloemer/obiquos)
 ---
 
 ## Conclusão
