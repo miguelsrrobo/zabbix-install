@@ -230,11 +230,13 @@ void loop()
 Este vídeo demonstra como programar um módulo de monitoramento de energia INA226 e um display OLED utilizando Arduino. O tutorial aborda o cabeamento, a instalação de bibliotecas e a escrita de código para exibir leituras de corrente, tensão e potência. O apresentador fornece uma explicação clara do processo e inclui uma demonstração para ilustrar a funcionalidade.
 [INA226 Power Monitor + OLED Display - Arduino Tutorial ](https://www.youtube.com/watch?v=BscbVAANlDA)
 
-----
+---
 
 ## Adafruit INA219 Sensor de Corrente e Tensão
 A placa de expansão INA219B e a FeatherWing INA219 resolverão todos os seus problemas de monitoramento de energia. Em vez de lutar com dois multímetros, você pode usar esta placa para medir tanto a tensão no lado alto quanto o consumo de corrente contínua via I2C com 1% de precisão. 
 [Adafruit INA219 Current Sensor Breakout](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ina219-current-sensor-breakout.pdf)
+
+---
 
 ## INA219 Tutorial for Arduino, ESP8266 and ESP32
 
