@@ -236,6 +236,10 @@ Este vídeo demonstra como programar um módulo de monitoramento de energia INA2
 A placa de expansão INA219B e a FeatherWing INA219 resolverão todos os seus problemas de monitoramento de energia. Em vez de lutar com dois multímetros, você pode usar esta placa para medir tanto a tensão no lado alto quanto o consumo de corrente contínua via I2C com 1% de precisão. 
 [Adafruit INA219 Current Sensor Breakout](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ina219-current-sensor-breakout.pdf)
 
+## INA219 Tutorial for Arduino, ESP8266 and ESP32
+
+[INA219 Tutorial for Arduino, ESP8266 and ESP32](https://diyi0t.com/ina219-tutorial-for-arduino-and-esp/)
+
 ## Referencias
 [Zabbix Download](https://www.ti.com/lit/ds/symlink/ina226.pdf)
 
