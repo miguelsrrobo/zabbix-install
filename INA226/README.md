@@ -226,8 +226,13 @@ void loop()
 
 ```
 ---
+# Monitor + Disply OLED turotrial com Arduino nano
 
 [INA226 Power Monitor + OLED Display - Arduino Tutorial ](https://www.youtube.com/watch?v=BscbVAANlDA)
+
+----
+
+# Adafruit INA219 Sensor de Corrente e Tensão
 
 [Adafruit INA219 Current Sensor Breakout](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ina219-current-sensor-breakout.pdf)
 
