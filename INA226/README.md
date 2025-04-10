@@ -227,7 +227,7 @@ void loop()
 ```
 ---
 ## Monitor + Disply OLED turotrial com Arduino nano
-
+Este vídeo demonstra como programar um módulo de monitoramento de energia INA226 e um display OLED utilizando Arduino. O tutorial aborda o cabeamento, a instalação de bibliotecas e a escrita de código para exibir leituras de corrente, tensão e potência. O apresentador fornece uma explicação clara do processo e inclui uma demonstração para ilustrar a funcionalidade.
 [INA226 Power Monitor + OLED Display - Arduino Tutorial ](https://www.youtube.com/watch?v=BscbVAANlDA)
 
 ----
