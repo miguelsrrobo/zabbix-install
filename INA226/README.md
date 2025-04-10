@@ -233,7 +233,7 @@ void loop()
 ----
 
 ## Adafruit INA219 Sensor de Corrente e Tensão
-
+A placa de expansão INA219B e a FeatherWing INA219 resolverão todos os seus problemas de monitoramento de energia. Em vez de lutar com dois multímetros, você pode usar esta placa para medir tanto a tensão no lado alto quanto o consumo de corrente contínua via I2C com 1% de precisão. 
 [Adafruit INA219 Current Sensor Breakout](https://cdn-learn.adafruit.com/downloads/pdf/adafruit-ina219-current-sensor-breakout.pdf)
 
 ## Referencias
