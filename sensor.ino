@@ -1,7 +1,11 @@
 #include "ESP8266ZabbixSender.h"
 #include <Base64.h>
+#include <Wire.h>
+#include <INA226_WE.h>   
+#define I2C_ADDRESS 0x40
 
 ESP8266ZabbixSender zSender;
+INA226_WE ina226 = INA226_WE(I2C_ADDRESS);
 
 /* WiFi settings */
 String ssid = "AndroidAP";
@@ -9,15 +13,17 @@ String pass = "12345678";
 
 /* Zabbix server setting */
 #define SERVERADDR 192, 168, 0, 123 // IP Address example 192.168.0.123
-#define ZABBIXPORT 10051			
-#define ZABBIXAGHOST "ESP"
-#define ZABBIX_KEY "ServerRoom"
+#define ZABBIXPORT 10050			
+#define ZABBIXAGHOST "tensao"
+#define ZABBIX_KEY "000"
+
+
+
 
 
 // DS18B20
 //OneWire oneWire(2); // GPIO2 or D4 pin on ESP device
 //DallasTemperature DS18B20(&oneWire);
-
 
 // WiFi connectivity checker
 boolean checkConnection() {
@@ -36,9 +42,11 @@ boolean checkConnection() {
 
 void setup() {
 
-  // Initialize terminal
   Serial.begin(115200);
-  Serial.println();
+  while (!Serial); // wait until serial comes up on Arduino Leonardo or MKR WiFi 1010
+  Wire.begin();
+  ina226.init();
+//  Serial.println();
 
   // Configure WiFi
   WiFi.mode(WIFI_STA);
@@ -51,6 +59,26 @@ void setup() {
 
   // Initialize Zabbix sender
   zSender.Init(IPAddress(SERVERADDR), ZABBIXPORT, ZABBIXAGHOST);
+
+  // sensor de corrente e tensão
+  ina226.setCorrectionFactor(0.93);
+ 
+  Serial.println("INA226 Current Sensor Example Sketch - Continuous");
+ 
+  ina226.waitUntilConversionCompleted(); //if you comment this line the first data might be zero
+ 
+  Serial.println("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, pass);
+  
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(100);
+    Serial.print("*");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+
 }
 
 void loop() {
