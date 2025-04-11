@@ -67,8 +67,8 @@ ESP8266ZabbixSender zSender;
 INA226_WE ina226 = INA226_WE(I2C_ADDRESS);
 
 /* WiFi settings */
-String ssid = "LARM";
-String pass = "LarmUfsc2022";
+String ssid = "";
+String pass = "";
 
 /* Zabbix server setting */
 #define SERVERADDR 127,0,0,1 // IP Address example 192.168.0.123
