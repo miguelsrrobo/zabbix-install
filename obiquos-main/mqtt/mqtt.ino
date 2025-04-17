@@ -1,23 +1,22 @@
 /***************************************************
-  Exemplo: Ler MPU6050 (via Adafruit libraries)
-  e enviar leituras via MQTT em formato JSON
+  Leitura do INA226 e envio via MQTT em formato JSON
  ***************************************************/
 #include <Wire.h>
-#include <ESP8266WiFi.h>    // Se for ESP8266; caso contrário, use <WiFi.h> para ESP32
-#include <PubSubClient.h>   // Biblioteca MQTT
-#include <Adafruit_MPU6050.h>
-#include <Adafruit_Sensor.h>
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+#include <INA226_WE.h>
 
-Adafruit_MPU6050 mpu;
+#define I2C_ADDRESS 0x40
+INA226_WE ina226 = INA226_WE(I2C_ADDRESS);
 
 // Configurações de WiFi
-const char* ssid       = "A535G";
-const char* password   = "mlki6803";
+const char* ssid       = "Nelson 2G";
+const char* password   = "nelson180599";
 
 // Configurações do MQTT
-const char* mqtt_server = "192.168.254.104"; 
-const int   mqtt_port   = 1883;
-const char* mqtt_topic  = "sensor/acelerometro";
+const char* mqtt_server = "127.0.0.1"; 
+const int   mqtt_port   = 10050;
+const char* mqtt_topic  = "sensor/potencia";
 
 // Criação do cliente WiFi e do cliente MQTT
 WiFiClient espClient;
@@ -33,44 +32,35 @@ void setup() {
   // Configura o servidor MQTT
   client.setServer(mqtt_server, mqtt_port);
 
-  // Inicializa o MPU6050
-  if (!mpu.begin()) {
-    Serial.println("Falha ao encontrar o MPU6050");
-    while (1) { delay(10); }
-  }
-  Serial.println("MPU6050 encontrado!");
+  // Inicializa o sensor INA226
+  Wire.begin();
+  ina226.init();
+  ina226.setResistorRange(0.1, 1.3); // resistor de 0.1 Ohm, até 1.3A
+  ina226.setCorrectionFactor(0.93);
+  ina226.waitUntilConversionCompleted();
 
-  // Configurações semelhantes ao Código 2
-  mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
-  mpu.setGyroRange(MPU6050_RANGE_500_DEG);
-  mpu.setFilterBandwidth(MPU6050_BAND_5_HZ);
-
-  Serial.println("MPU6050 configurado e pronto!");
+  Serial.println("INA226 configurado!");
 }
 
 void loop() {
-  // Verifica se está conectado ao broker; se não, tenta reconectar
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
 
-  // Lê dados do sensor
-  sensors_event_t a, g, temp;
-  mpu.getEvent(&a, &g, &temp);
+  // Leitura do sensor INA226
+  ina226.readAndClearFlags();
+  float busVoltage_V = ina226.getBusVoltage_V();
+  float current_mA   = ina226.getCurrent_mA();
+  float power_mW     = ina226.getBusPower();
 
-  // Monta JSON (usando 'String'; se quiser algo mais robusto, usar ArduinoJson)
+  // Monta JSON com os três parâmetros
   String payload = "{";
-  payload += "\"x\":" + String(a.acceleration.x, 2) + ",";
-  payload += "\"y\":" + String(a.acceleration.y, 2) + ",";
-  payload += "\"z\":" + String(a.acceleration.z, 2) + ",";
-  payload += "\"gyro_x\":"  + String(g.gyro.x, 2)        + ",";
-  payload += "\"gyro_y\":"  + String(g.gyro.y, 2)        + ",";
-  payload += "\"gyro_z\":"  + String(g.gyro.z, 2)        + ",";
-  payload += "\"temp\":"    + String(temp.temperature, 2);
+  payload += "\"busVoltage_V\":" + String(busVoltage_V, 3) + ",";
+  payload += "\"current_mA\":"   + String(current_mA, 2)   + ",";
+  payload += "\"power_mW\":"     + String(power_mW, 2);
   payload += "}";
 
-  // Exibe no Serial o payload que será enviado
   Serial.print("Publicando no tópico ");
   Serial.print(mqtt_topic);
   Serial.print(": ");
@@ -79,12 +69,9 @@ void loop() {
   // Publica no tópico MQTT
   client.publish(mqtt_topic, payload.c_str());
 
-  // Aguarda meio segundo
-  delay(500);
+  delay(3000); // Aguarda 3 segundos
 }
 
-//--------------------------------------------------
-// Função para conectar no WiFi
 //--------------------------------------------------
 void setup_wifi() {
   Serial.print("Conectando ao WiFi: ");
@@ -101,14 +88,10 @@ void setup_wifi() {
 }
 
 //--------------------------------------------------
-// Função para reconectar ao MQTT quando cair
-//--------------------------------------------------
 void reconnect() {
-  // Enquanto não conectar
   while (!client.connected()) {
     Serial.print("Tentando conectar ao MQTT...");
-    // Tenta conectar (nome do cliente MQTT pode ser qualquer)
-    if (client.connect("MPU6050Client")) {
+    if (client.connect("INA226Client")) {
       Serial.println("conectado!");
     } else {
       Serial.print("falhou, rc=");
